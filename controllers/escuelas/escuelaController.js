@@ -50,6 +50,8 @@ const escuelaController = {
   crearEscuela: async (req, res) => {
     const { nombre, padron, region_id, localidad } = req.body;
    
+    console.log( { nombre, padron, region_id, localidad }); 
+
     const logo =    req.file ? req.file.filename : null; 
 
     try {
@@ -60,12 +62,15 @@ const escuelaController = {
         region_id,
         logo
       });
+
+      console.log("escuela creadaa: ", escuela);
       res.json(escuela)
       
 
       res.redirect("/escuelas");
     } catch (error) {
-
+      console.log("error", error );
+      res.json({"error: " : error})
       res.redirect("/escuelas/nuevo");
     }
   },
