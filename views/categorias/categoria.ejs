@@ -1,0 +1,17 @@
+<%-include("../partials/header.ejs")%>
+  <body>
+    <h1><%= categoria.nombre %></h1>
+
+    <% categoria.proyectos.forEach(proyecto => { %>
+
+    <div>
+      <ul>
+        <li><h3><%= proyecto.titulo %></h3></li>
+
+        <li><p><%= proyecto.descripcion %></p></li>
+      </ul>
+    </div>
+
+    <% }) %>
+  </body>
+</html>
